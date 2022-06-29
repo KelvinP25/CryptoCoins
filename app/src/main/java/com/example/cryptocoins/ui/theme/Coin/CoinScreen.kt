@@ -27,6 +27,7 @@ fun CoinScreen(viewModel: CoinViewModel = hiltViewModel()) {
     Column(modifier = Modifier.fillMaxSize()) {
         LazyColumn(modifier = Modifier.fillMaxSize()) {
             items(state.coins) { coin ->
+                CoinItem(coin = coin, {})
             }
         }
 
