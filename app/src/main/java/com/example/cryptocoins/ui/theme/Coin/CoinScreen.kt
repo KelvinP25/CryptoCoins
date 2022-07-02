@@ -18,12 +18,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
 import com.example.cryptocoins.data.remoto.dto.Coin
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun CoinScreen(
+    navHostController: NavHostController,
     viewModel: CoinViewModel = hiltViewModel()
 ) {
     val state = viewModel.state.value
