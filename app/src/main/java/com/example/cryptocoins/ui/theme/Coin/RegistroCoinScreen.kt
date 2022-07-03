@@ -26,6 +26,7 @@ import com.example.cryptocoins.R
 @Composable
 fun RegistroCoinScreen(navHostController: NavHostController) {
 
+
     Scaffold(
         topBar = {
             TopAppBar(
