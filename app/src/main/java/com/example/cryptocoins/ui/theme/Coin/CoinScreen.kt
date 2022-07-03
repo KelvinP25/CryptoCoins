@@ -2,6 +2,7 @@ package com.example.cryptocoins.ui.theme.Coin
 
 import android.annotation.SuppressLint
 import android.icu.text.DecimalFormat
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -13,13 +14,16 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
+import com.example.cryptocoins.R
 import com.example.cryptocoins.data.remoto.dto.Coin
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
@@ -43,7 +47,7 @@ fun CoinScreen(
 
                 },
                 actions = {
-                    IconButton(onClick = {navHostController.navigate("RegistroCS") }){
+                    IconButton(onClick = { navHostController.navigate("RegistroCS") }) {
                         Icon(
                             imageVector = Icons.Default.Add,
                             contentDescription = "Agregar",
@@ -73,11 +77,13 @@ fun CoinScreen(
         }
     }
 }
+
 @Composable
 fun CoinItem(
     coin: Coin,
     onClick: (Coin) -> Unit
 ) {
+
     val formato = DecimalFormat("#,###.#####")
     Card(
         modifier = Modifier

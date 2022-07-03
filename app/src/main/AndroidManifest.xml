@@ -11,9 +11,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/btc_crypto_cryptocurrency_cryptocurrencies_cash_money_bank_payment_95084"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/btc_crypto_cryptocurrency_cryptocurrencies_cash_money_bank_payment_95084"
         android:supportsRtl="true"
         android:theme="@style/Theme.CryptoCoins"
         tools:targetApi="31">

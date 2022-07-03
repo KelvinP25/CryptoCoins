@@ -67,7 +67,7 @@ fun MyApp() {
 @Composable
 fun SplashScreen( navHostController: NavHostController) {
     LaunchedEffect(key1 = true){
-        delay(6000)
+        delay(5000)
         navHostController.popBackStack()
         navHostController.navigate("CoinScreen")
     }
