@@ -85,7 +85,7 @@ fun CoinItem(
     onClick: (Coin) -> Unit
 ) {
 
-    val formato = DecimalFormat("#,###.#####")
+    val formato = DecimalFormat("#,###.############")
     Card(
         modifier = Modifier
             .clickable { onClick(coin) }
