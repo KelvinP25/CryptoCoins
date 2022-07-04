@@ -11,7 +11,7 @@ import javax.inject.Inject
 
 class CoinRepository @Inject constructor(
     private val api: CoinApi
-){
+) {
     fun getCoins(): Flow<Resource<List<Coin>>> = flow {
         try {
             emit(Resource.Loading())
@@ -22,5 +22,18 @@ class CoinRepository @Inject constructor(
         } catch (e: IOException) {
             emit(Resource.Error(e.message ?: "Verificar conexión a internet"))
         }
+    }
+
+    suspend fun postCoin(coin: Coin): String {
+        var message: String
+        var call = api.postCoin(coin)
+        var coin = call.body()
+
+        if(call.isSuccessful) {
+            message = "Coin added successfully"
+        } else {
+            message = "Error occurred"
+        }
+        return message
     }
 }
