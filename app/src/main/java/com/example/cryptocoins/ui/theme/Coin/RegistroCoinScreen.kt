@@ -120,25 +120,35 @@ fun RegistroCoinScreen(
                     errordes = viewModel._description.isBlank()
                     errorval = viewModel._valor.isBlank()
                     if (!errordes && !errorval) {
-                        if (viewModel._valor.toDouble() > 0) {
-                            viewModel.Post()
+                        if(isNumeric(viewModel._valor) == false){
                             Toast.makeText(
                                 contexto,
-                                "La moneda se guardó correctamente",
+                                "El precio esta mal ingresado",
                                 Toast.LENGTH_LONG
                             ).show()
-                            // navHostController.navigate("")
-                        } else {
-                            Toast.makeText(
-                                contexto,
-                                "El precio no puede ser menor o igual a cero",
-                                Toast.LENGTH_SHORT
-                            ).show()
+                        }else{
+                            if (viewModel._valor.toDouble() > 0) {
+                                viewModel.Post()
+                                Toast.makeText(
+                                    contexto,
+                                    "La moneda se guardó correctamente",
+                                    Toast.LENGTH_LONG
+                                ).show()
+                                viewModel._description = ""
+                                viewModel._valor = 0.00.toString()
+                                viewModel._image = ""
+                                // navHostController.navigate("")
+                            } else {
+                                Toast.makeText(
+                                    contexto,
+                                    "El precio no puede ser menor o igual a cero",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
                         }
+
                     }
-                    viewModel._description = ""
-                    viewModel._valor = 0.00.toString()
-                    viewModel._image = ""
+
                 },
 
                 modifier = Modifier
@@ -168,4 +178,8 @@ fun RegistroCoinScreen(
             }
         }
     }
+}
+//validar si es numero o no
+fun isNumeric(str: String): Boolean {
+    return str.matches("-?\\d+(\\.\\d+)?".toRegex())
 }
